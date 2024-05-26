@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upload Page with Navigation</title>
+
+ <link rel="stylesheet" href="/assets/css/uploadDocs.css" />
+
+<script>
+  function updateFileList() {
+  var input = document.getElementById('fileUpload');
+  var fileNames = '';
+  
+  for (var i = 0; i < input.files.length; ++i) {
+    fileNames += '<li>' + input.files[i].name + '</li>';
+  }
+  
+  document.getElementById('fileList').innerHTML = fileNames;
+}
+</script>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="http://127.0.0.1:5500/assets/html/index.html">Logout</a>
+</div>
+
+<div class="upload-container">
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="fileUpload">Upload Required Documents in a pdf file:</label>
+    <input type="file" id="fileUpload" name="documents" multiple>
+    <input type="submit" value="Upload">
+  </form>
+  <a href="http://127.0.0.1:5500/assets/html/loanNumber.html">
+    <button class="option-button">Proceed</button>
+</a>
+
+</div>
+
+
+
+</body>
+</html>
